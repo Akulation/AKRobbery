@@ -12,7 +12,7 @@ config = {
   "victim_message": "You are being robbed! Make sure to listen to the robber so you dont die!",
   "not_looking_at_player": "You must be looking at a player to rob them.",
   "on_cooldown_message": "You are still on cooldown for robbing.",
-  "rob_cooldown": "" // set to "0" for no cooldown
+  "rob_cooldown": "900" // set to "0" for no cooldown
 };
 
 cooldownList = array();
