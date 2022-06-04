@@ -1,0 +1,37 @@
+/*
+	Script Name: AkuRobbery
+	Version: 1.0.0
+	Description: Rob players using /rob
+	Created By: Akulation
+*/
+
+config = {
+  "permission_prefix": "akurobbery",
+  "message_color": "#00FFFF",
+  "robber_message": "You are now robbing this player, make sure to give them at least three warnings.",
+  "victim_message": "You are being robbed! Make sure to listen to the robber so you dont die!",
+  "not_looking_at_player": "You must be looking at a player to rob them.",
+  "on_cooldown_message": "You are still on cooldown for robbing.",
+  "rob_cooldown": "" // set to "0" for no cooldown
+};
+
+cooldownList = array();
+
+command rob() {
+	permission = config["permission_prefix"] + ".rob";
+	allowedCaller = "player";
+	execute(){
+		if(cooldownList.contains(player.id){
+			return player.message(config["on_cooldown_message"]);
+		}
+		target = player.look.getPlayer();
+		if(target == null){
+			return player.message(config["not_looking_at_player"]);
+		}
+		player.message(config["robber_message"]);
+		target.message(config["victim_message"]);
+		cooldownList.add(player.id)
+		wait.seconds(config["rob_cooldown"], cooldownList["remove"], player.id);
+	}
+}
+
