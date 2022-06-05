@@ -10,8 +10,7 @@ Rob plugin that features customizable messages, customizable cooldowns.
  /rob : `akurobbery.rob`
  
 # Config:
-  ```"permission_prefix": "akurobbery", // dont change this
-  "message_color": "#00FFFF",
+  ```
   "robber_message": "You are now robbing this player, make sure to give them at least three warnings.",
   "victim_message": "You are being robbed! Make sure to listen to the robber so you dont die!",
   "not_looking_at_player": "You must be looking at a player to rob them.",
