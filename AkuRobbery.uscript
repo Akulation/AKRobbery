@@ -6,7 +6,6 @@
 */
 
 config = {
-  "permission_prefix": "akurobbery",
   "message_color": "#00FFFF",
   "robber_message": "You are now robbing this player, make sure to give them at least three warnings.",
   "victim_message": "You are being robbed! Make sure to listen to the robber so you dont die!",
@@ -18,7 +17,7 @@ config = {
 cooldownList = array();
 
 command rob() {
-	permission = config["permission_prefix"] + ".rob";
+	permission = "akurobbery.rob";
 	allowedCaller = "player";
 	execute(){
 		if(cooldownList.contains(player.id){
