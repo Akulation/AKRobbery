@@ -15,7 +15,7 @@ Rob plugin that features customizable messages, customizable cooldowns.
   "victim_message": "You are being robbed! Make sure to listen to the robber so you dont die!",
   "not_looking_at_player": "You must be looking at a player to rob them.",
   "on_cooldown_message": "You are still on cooldown for robbing.",
-  // rob cooldown is on line 34 of the uscript file
+  // rob cooldown is on line 33 of the uscript file
   ```
   
   Edit the config by opening the `AkuRobbery.uscript` file.
