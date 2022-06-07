@@ -2,9 +2,9 @@
 Rob plugin that features customizable messages, customizable cooldowns.
 
 # Features:
- Use a command to rob the player you are looking at.
- Fully customizable.
- Simple to use.
+- Use a command to rob the player you are looking at.
+- Fully customizable.
+- Simple to use.
  
 # Permissions:
  /rob : `akurobbery.rob`
