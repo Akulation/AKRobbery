@@ -1,0 +1,44 @@
+// AKRobbery v1.4
+// Created by: Akulation
+// https://github.com/Akulation
+
+config = {
+  "robber_message": "You are now robbing {0}, make sure to give them at least three warnings.", // {0} = victim
+  "victim_message": "You are being robbed by {0}!  Make sure to listen to the robber so you dont die!", // {0} = robber
+  "not_looking_at_player": "You must be looking at a player to rob them.",
+  "on_cooldown_message": "You are still on cooldown for robbing.",
+  
+  "discord_webhook_url": "https://discord.com/api/webhooks/0000000/XXXXXXX"
+  // cooldown config is on line 34
+};
+
+cooldownList = array();
+
+command rob() {
+	permission = "rob";
+	allowedCaller = "player";
+	execute(){
+		if(cooldownList.contains(player.id)){
+			return player.message(config["on_cooldown_message"]);
+		}
+		target = player.look.getPlayer();
+		if(target == null){
+			return player.message(config["not_looking_at_player"]);
+		}
+		player.message(config["robber_message"].format(target.name));
+		target.message(config["victim_message"].format(player.name));
+	posX = player.position.x;
+    posY = player.position.y;
+    posZ = player.position.z;
+	Embed = discordEmbed();
+	Embed.title = "Player Robbed!";
+	Embed.description = "Robber: **" + player.name + "** (**" + player.id + "**) \n Victim: **" + target.name + "** (**" + target.id + "**) \n Nearest Location: **" + player.nearestLocation + "** \n Exact Position: **X: " + posX + " Y: " + posY + " Z: " + posZ + "**"; 
+	Embed.color = 15277667;
+	Embed.footer.text = time.now.date + " | " + time.now.time;
+	discord.sendEmbed(config["discord_webhook_url"], Embed);
+
+	cooldownList.add(player.id);
+	wait.seconds(1800, cooldownList["remove"], player.id); // change the number "1800" here to change cooldown, time is in seconds.
+	}
+}
+
